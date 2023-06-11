@@ -7,7 +7,7 @@ class AppClass extends React.Component {
     super();
     console.log("hi from constructor");
     this.state = {
-        currentIndexColor: 0
+      currentIndexColor: 0,
     };
   }
 
@@ -25,24 +25,20 @@ class AppClass extends React.Component {
         <h1 id="current-color">{colors[this.state.currentIndexColor]}</h1>
 
         <div className="colors">
-          {
-            colors.map(
-                (color, i) => 
-                    <button
-                        key={`color-${i}`}
-                        style={{ 
-                            backgroundColor: color
-                        }}
-                        className={i === this.state.currentIndexColor ? 'active' : ''}
-                        onClick={() => {
-                            document.body.style.backgroundColor = color;
-                            this.setState({currentIndexColor: i}) 
-                            console.log(`clicked ${i}`);                       
-                        }}
-                    >
-                    </button>
-            )
-          }
+          {colors.map((color, i) => (
+            <button
+              key={`color-${i}`}
+              style={{
+                backgroundColor: color,
+              }}
+              className={i === this.state.currentIndexColor ? "active" : ""}
+              onClick={() => {
+                document.body.style.backgroundColor = color;
+                this.setState({ currentIndexColor: i });
+                console.log(`clicked ${i}`);
+              }}
+            ></button>
+          ))}
         </div>
       </div>
     );
